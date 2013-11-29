@@ -1,4 +1,5 @@
 class DeckReader
+  attr_reader :decks
 
   def initialize
     if File.exists?('decks.json') && !File.zero?("decks.json")

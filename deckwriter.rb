@@ -2,7 +2,6 @@ class DeckWriter
 
   def initialize(decks)
     @decks = decks
-    write_decks
   end
 
   def write_decks
