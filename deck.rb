@@ -1,6 +1,8 @@
 class Deck
+  attr_reader :name
 
-  def initialize
+  def initialize(name)
+    @name = name
     @deck = []
   end
 
