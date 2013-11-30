@@ -6,7 +6,9 @@ class DeckWriter
 
   def write_decks
     File.open("decks.json",'w') do |log|
-      log.write(JSON.generate(@decks))
+      decks = JSON.generate(@decks)
+      binding.pry
+      log.write(JSON.generate(decks))
     end
   end
 

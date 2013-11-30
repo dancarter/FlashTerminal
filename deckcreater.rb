@@ -1,10 +1,15 @@
 class DeckCreater
-  def new_deck
-    puts "What should the deck be called?"
-    print "> "
+
+  def new_deck(decks)
+    print "What should the deck be called? (Names must be unique)\n> "
     name = gets.chomp
+    while decks.keys.include?(name)
+      print "Deck name already exists, please enter new name.\n> "
+      name = gets.chomp
+    end
     new_deck = Deck.new(name)
-    while adding_cards?
+    adding = true
+    while adding
       puts "Please enter text for the front of the card:"
       print "> "
       front = gets.chomp
@@ -12,12 +17,14 @@ class DeckCreater
       print "> "
       back = gets.chomp
       new_card = Card.new(front,back)
-      new_deck << new_card
+      new_deck.add_card(new_card)
+      adding = adding_more_cards?
     end
-    new_deck
+    decks[name] = new_deck
+    decks
   end
 
-  def adding_cards?
+  def adding_more_cards?
     puts "Add another card? (y/n): "
     print "> "
     answer = gets.chomp.downcase
@@ -27,4 +34,6 @@ class DeckCreater
     end
     return false if answer == 'n'
     true
+  end
+
 end

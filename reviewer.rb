@@ -1,9 +1,10 @@
 class Reviewer
   def initialize(deck)
+    binding.pry
     @deck = deck
   end
 
   def begin_review
-    puts "You lose. Good day sir."
+    puts @deck.review(1)
   end
 end
