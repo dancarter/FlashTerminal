@@ -1,0 +1,12 @@
+---
+blah: !ruby/object:Deck
+  name: blah
+  deck:
+  - !ruby/object:Card
+    front: lol
+    back: lawl
+    confidence: '3'
+  - !ruby/object:Card
+    front: hai
+    back: bai
+    confidence: '2'

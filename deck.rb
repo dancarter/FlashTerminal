@@ -30,4 +30,8 @@ class Deck
     @deck.delete_at(index-1)
   end
 
+  def select_confidence(confidence)
+    @deck.select { |card| card.confidence == confidence }
+  end
+
 end
