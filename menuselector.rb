@@ -7,7 +7,7 @@ class MenuSelector
   end
 
   def menu
-    @decks.each do |name|
+    @decks.each_key do |name|
       puts "#{name}"
     end
     puts "Type 'new' to create a new deck"
@@ -25,7 +25,7 @@ class MenuSelector
     elsif option.downcase == 'done'
       @reviewing = false
     else
-      review(option.to_i)
+      review(option)
     end
   end
 

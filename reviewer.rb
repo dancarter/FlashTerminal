@@ -1,6 +1,5 @@
 class Reviewer
   def initialize(deck)
-    binding.pry
     @deck = deck
   end
 

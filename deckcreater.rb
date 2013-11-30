@@ -30,7 +30,7 @@ class DeckCreater
     answer = gets.chomp.downcase
     if answer != 'n' and answer != 'y'
       puts "Please enter 'y' or 'n'.\n\n"
-      return adding_cards?
+      return adding_more_cards?
     end
     return false if answer == 'n'
     true

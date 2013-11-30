@@ -5,10 +5,8 @@ class DeckWriter
   end
 
   def write_decks
-    File.open("decks.json",'w') do |log|
-      decks = JSON.generate(@decks)
-      binding.pry
-      log.write(JSON.generate(decks))
+    File.open("decks.yaml", 'w') do |out|
+      YAML.dump(@decks, out)
     end
   end
 
