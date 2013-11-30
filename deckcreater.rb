@@ -3,8 +3,8 @@ class DeckCreater
   def new_deck(decks)
     print "What should the deck be called? (Names must be unique)\n> "
     name = gets.chomp
-    while decks.keys.include?(name)
-      print "Deck name already exists, please enter new name.\n> "
+    while decks.keys.include?(name) || name !~ /[a-zA-Z0-9]/ || MenuSelector::OPTIONS.include?(name)
+      print "Invalid deck name, please enter new name.\n> "
       name = gets.chomp
     end
     new_deck = Deck.new(name)

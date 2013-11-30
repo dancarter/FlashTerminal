@@ -17,14 +17,14 @@ class MenuSelector
     puts "Type 'new' to create a new deck"
     puts "Type 'delete (name)' to delete a deck"
     puts "Type 'edit (name)' to edit a deck"
-    puts "Type 'done to exit the program"
+    puts "Type 'done' to exit the program"
+    print "Enter the name of a deck to review\n> "
   end
 
   def perform_menu_selection
-    print "Enter the name of a deck to review\n> "
     option = gets.chomp
     if !good_menu_choice?(option.split(" ")[0])
-      puts "Invalid selection."
+      print "Invalid selection.\n> "
       perform_menu_selection
     elsif option.downcase == 'new'
       create_deck
@@ -72,6 +72,7 @@ class MenuSelector
   end
 
   def good_menu_choice?(choice)
+    return false if choice.nil?
     return true if @decks.keys.include?(choice) || OPTIONS.include?(choice.downcase)
     false
   end
