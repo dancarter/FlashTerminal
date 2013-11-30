@@ -23,7 +23,7 @@ class MenuSelector
 
   def perform_menu_selection
     option = gets.chomp
-    if !good_menu_choice?(option.split(" ")[0])
+    if !good_menu_choice?(option)
       print "Invalid selection.\n> "
       perform_menu_selection
     elsif option.downcase == 'new'
@@ -73,7 +73,7 @@ class MenuSelector
 
   def good_menu_choice?(choice)
     return false if choice.nil?
-    return true if @decks.keys.include?(choice) || OPTIONS.include?(choice.downcase)
+    return true if @decks.keys.include?(choice) || OPTIONS.include?(choice.downcase.split(" ")[0])
     false
   end
 
