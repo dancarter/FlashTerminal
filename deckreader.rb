@@ -10,8 +10,8 @@ class DeckReader
   end
 
   def read_decks
-    @decks = File.open( 'decks.yaml', 'r') { |yam| loaded = YAML.load( yam ) }
-    @decks = @decks.map{ |pair| Hash[*pair] }.reduce Hash.new, :merge
+    decks = File.open( 'decks.yaml', 'r') { |yam| loaded = YAML.load( yam ) }
+    @decks = decks.map{ |pair| Hash[*pair] }.reduce Hash.new, :merge
   end
 
 end

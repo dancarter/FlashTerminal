@@ -6,4 +6,9 @@ class Card
     @back = back
   end
 
+  def to_s
+    puts "Front: #{@front}"
+    puts "Back : #{@back}"
+  end
+
 end

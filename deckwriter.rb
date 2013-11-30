@@ -1,6 +1,6 @@
 class DeckWriter
 
-  def initialize(decks)
+  def set_decks(decks)
     @decks = decks
   end
 

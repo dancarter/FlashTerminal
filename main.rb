@@ -1,4 +1,3 @@
-require 'pry'
 require 'yaml'
 require_relative 'card'
 require_relative 'deck'
@@ -7,16 +6,18 @@ require_relative 'deckwriter'
 require_relative 'menuselector'
 require_relative 'reviewer'
 require_relative 'deckcreater'
+require_relative 'deckeditor'
 
 reader = DeckReader.new
+writer = DeckWriter.new
 selector = MenuSelector.new(reader.decks)
 
 while selector.reviewing?
   system "clear" unless system "cls"
   selector.menu
   selector.perform_menu_selection
-  sleep(1)
+  writer.set_decks(selector.decks)
+  writer.write_decks
 end
 
-writer = DeckWriter.new(selector.decks)
-writer.write_decks
+system "clear" unless system "cls"
